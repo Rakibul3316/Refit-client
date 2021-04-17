@@ -1,0 +1,15 @@
+.order-list-header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.order-list-body {
+  background-color: #c6e7f0;
+  height: 100vh;
+}
+
+.order-list-table {
+  padding: 20px 20px 0px 20px;
+}

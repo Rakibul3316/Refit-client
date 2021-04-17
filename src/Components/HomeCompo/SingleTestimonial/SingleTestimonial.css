@@ -1,0 +1,29 @@
+.single-testimonial {
+  padding: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  transition: 0.5s;
+}
+
+.single-testimonial:hover {
+  box-shadow: 3px 3px 20px #333;
+}
+
+.testimonial-img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.testimonial-content {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.testimonial-user {
+  margin-left: 20px;
+}
+
+.testimonial-comment p {
+  font-size: 1.2rem;
+}

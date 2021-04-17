@@ -1,0 +1,26 @@
+.testimonial {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.testimonial-title {
+  margin: auto;
+  width: 70%;
+}
+
+.testimonial-title h1 {
+  font-size: 3.25rem;
+  font-weight: 700;
+}
+
+.testimonial-title h1 span {
+  color: #00c3ed;
+  margin: 0px 5px;
+}
+
+.testimonial-title p {
+  color: #565656;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

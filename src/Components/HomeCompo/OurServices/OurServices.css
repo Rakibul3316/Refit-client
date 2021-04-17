@@ -1,0 +1,25 @@
+.our-services {
+  padding: 50px 0px;
+}
+
+.service-title {
+  margin: auto;
+  width: 70%;
+}
+
+.service-title h1 {
+  font-size: 3.25rem;
+  font-weight: 700;
+}
+
+.service-title h1 span {
+  color: #00c3ed;
+  margin: 0px 5px;
+}
+
+.service-title p {
+  color: #565656;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}

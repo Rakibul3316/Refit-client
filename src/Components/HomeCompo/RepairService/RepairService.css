@@ -1,0 +1,19 @@
+.repair-service {
+  padding: 50px 0px;
+}
+
+.repair-content h1 {
+  color: #002c42;
+  font-size: 3.25rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.repair-content p {
+  color: #014568;
+  font-size: 1rem;
+}
+
+.repair-img img {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+.user-nav {
+  margin-top: 30px;
+}
+
+.user-nav-link a {
+  display: inline-block;
+  padding-bottom: 15px;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.user-nav-link span {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+}

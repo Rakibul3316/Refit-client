@@ -1,0 +1,47 @@
+.footer {
+  padding: 50px;
+  background-color: #002c42;
+  color: #bbb;
+}
+
+.footer-logo a:hover {
+  text-decoration: none;
+}
+
+.footer-logo h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.footer-logo h2 span {
+  color: #00c3ed;
+}
+
+.extra-service h3,
+.opening-hour h3 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.extra-service-list ol,
+.openign-hour-list ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.extra-service-list ol li a {
+  display: inline-block;
+  color: #ddd;
+  font-size: 1rem;
+  padding: 7px 0px;
+}
+
+.openign-hour-list ul li {
+  color: #ddd;
+  font-size: 1rem;
+  padding: 7px 0px;
+}

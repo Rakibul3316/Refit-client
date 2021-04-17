@@ -1,0 +1,38 @@
+.add-service-header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.add-service-header h4 {
+  padding-left: 40px;
+}
+
+.add-service-body {
+  background-color: #c6e7f0;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.add-service-form {
+  width: 1000px;
+  padding: 30px;
+  margin: 20px 0px 0px 40px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.add-service-btn {
+  padding-top: 30px;
+  padding-right: 100px;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #00c3ed;
+  padding: 10px 25px;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 10px;
+}

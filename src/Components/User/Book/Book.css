@@ -1,0 +1,19 @@
+.user-header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.user-header h4 {
+  padding-left: 40px;
+}
+
+.user-body {
+  background-color: #c6e7f0;
+  height: 100vh;
+}
+
+.book-form {
+  width: 1000px;
+}
