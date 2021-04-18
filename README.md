@@ -95,6 +95,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Md Rakibul Sarker - [https://www.gmail.com](https://www.gmail.com)
 
-Project Repo Link: []()
+Project Repo Link: [https://github.com/Porgramming-Hero-web-course/complete-website-client-Rakibul3316](https://github.com/Porgramming-Hero-web-course/complete-website-client-Rakibul3316)
 
-Project live site Link: []()
+Project live site Link: [Live Link](https://complete-website-assign-11.web.app/)
