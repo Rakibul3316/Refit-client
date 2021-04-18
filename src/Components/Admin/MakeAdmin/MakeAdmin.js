@@ -12,7 +12,7 @@ const MakeAdmin = () => {
 
         console.log(newAdminEmail)
 
-        fetch("http://localhost:5000/addAdmin", {
+        fetch("https://warm-crag-75291.herokuapp.com/addAdmin", {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newAdminEmail)

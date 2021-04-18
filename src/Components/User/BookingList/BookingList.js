@@ -13,7 +13,7 @@ const BookingList = () => {
     console.log(userOrders)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userOrders?email=${loggedInUser.email}`)
+        fetch(`https://warm-crag-75291.herokuapp.com/userOrders?email=${loggedInUser.email}`)
             .then(res => res.json())
             .then(data => setUserOrders(data))
     }, [loggedInUser])

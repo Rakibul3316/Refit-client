@@ -21,7 +21,7 @@ const Review = () => {
         }
         console.log(newReview)
 
-        fetch("http://localhost:5000/addComments", {
+        fetch("https://warm-crag-75291.herokuapp.com/addComments", {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newReview)

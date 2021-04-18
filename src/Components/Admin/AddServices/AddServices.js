@@ -19,7 +19,7 @@ const AddServices = () => {
         }
         console.log(newData);
 
-        fetch("http://localhost:5000/addServices", {
+        fetch("https://warm-crag-75291.herokuapp.com/addServices", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newData)

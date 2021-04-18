@@ -17,7 +17,7 @@ const RemoveService = () => {
 
     const handleDelete = (id) => {
         console.log(id)
-        fetch("http://localhost:5000/deleteService", {
+        fetch("https://warm-crag-75291.herokuapp.com/deleteService", {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ id: id })

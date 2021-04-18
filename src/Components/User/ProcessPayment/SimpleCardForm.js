@@ -52,7 +52,7 @@ const SimpleCardForm = () => {
             imageURL: product.image
         }
 
-        fetch("http://localhost:5000/addOrders", {
+        fetch("https://warm-crag-75291.herokuapp.com/addOrders", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(order)
