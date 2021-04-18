@@ -2,7 +2,7 @@ import React from 'react';
 import './AdminSidebar.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faUserPlus, faListUl, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faUserPlus, faListUl, faHome, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const AdminSidebar = () => {
     return (
@@ -13,6 +13,10 @@ const AdminSidebar = () => {
                 </Link>
             </div>
             <div className="admin-nav">
+                <div className="admin-nav-link">
+                    <span><FontAwesomeIcon icon={faHome} /></span><Link to="/">Home</Link>
+                </div>
+
                 <div className="admin-nav-link">
                     <span><FontAwesomeIcon icon={faPlus} /></span><Link to="/addService">Add Service</Link>
                 </div>
@@ -26,7 +30,7 @@ const AdminSidebar = () => {
                 </div>
 
                 <div className="admin-nav-link">
-                    <span><FontAwesomeIcon icon={faHome} /></span><Link to="/">Home</Link>
+                    <span><FontAwesomeIcon icon={faTrashAlt} /></span><Link to="/removeService">Remove Service</Link>
                 </div>
             </div>
         </section>

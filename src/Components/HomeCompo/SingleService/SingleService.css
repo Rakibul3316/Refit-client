@@ -47,13 +47,39 @@
 }
 
 .service-btn {
-  color: #fff;
+  font-weight: 500;
+  display: inline-block;
+  border: 2px solid #002c42;
+  color: #002c42;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 25px;
+  position: relative;
+  transition: all 0.5s;
+  z-index: 99;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.service-btn::after {
   background-color: #002c42;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  z-index: -99;
+  transition: all 0.5s;
+  /* border-radius: 5px; */
 }
 
 .service-btn:hover {
-  color: #00c3ed;
+  color: #fff;
+  text-decoration: none;
+}
+
+.service-btn:hover::after {
+  width: 100%;
+  text-decoration: none;
 }

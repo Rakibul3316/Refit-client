@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ServiceContext } from '../../../App';
 import './Navigation.css'
 
 const Navigation = () => {
+
+    const { value, value2 } = useContext(ServiceContext);
+    const [loggedInUser, setLoggedInUser] = value2;
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/isAdmin", {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsAdmin(data))
+    }, [loggedInUser])
+
+
     return (
         <div className="menu-bar">
             <div className="container-fluid">
@@ -36,7 +53,11 @@ const Navigation = () => {
                                                 <Link className="nav-link" to="/book">Bookings</Link>
                                             </li>
                                             <li className="nav-item">
-                                                <Link className="nav-link" to="/addService">Admin</Link>
+
+                                                {
+                                                    isAdmin && <Link className="nav-link" to="/addService">Admin</Link>
+                                                }
+
                                             </li>
                                         </ul>
                                     </div>

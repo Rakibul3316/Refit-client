@@ -1,32 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SingleTestimonial from '../SingleTestimonial/SingleTestimonial';
 import './Testimonial.css'
 
-const testimonials = [
-    {
-        id: 1,
-        img: 'https://i.ibb.co/9hFbMwV/person-1.jpg',
-        name: 'Miriam Barron',
-        designation: 'Software Eng.',
-        comment: 'I feel very happy and be proud to connect with this industry. I presume this is a very productive and professional industry. I wish very good luck & success for this industry '
-    },
-    {
-        id: 2,
-        img: 'https://i.ibb.co/Bq79mFb/person-2.jpg',
-        name: 'Miriam Barron',
-        designation: 'Back-End Developer',
-        comment: 'I feel very happy and be proud to connect with this industry. I presume this is a very productive and professional industry. I wish very good luck & success for this industry '
-    },
-    {
-        id: 3,
-        img: 'https://i.ibb.co/3fd9s3L/person-3.jpg',
-        name: 'Miriam Barron',
-        designation: 'Front-End Developer',
-        comment: 'I feel very happy and be proud to connect with this industry. I presume this is a very productive and professional industry. I wish very good luck & success for this industry '
-    },
-]
-
 const Testimonial = () => {
+
+    const [comments, setComments] = useState([])
+    console.log(comments)
+
+    useEffect(() => {
+        fetch("http://localhost:5000/customerComment")
+            .then(res => res.json())
+            .then(data => setComments(data))
+    }, [])
+
+
     return (
         <section className="container">
             <div className="testimonial">
@@ -37,7 +24,7 @@ const Testimonial = () => {
                 <div className="testimonial-card">
                     <div className="row">
                         {
-                            testimonials.map(testimonial => (<SingleTestimonial testimonial={testimonial}></SingleTestimonial>))
+                            comments.map(comment => (<SingleTestimonial comment={comment}></SingleTestimonial>))
                         }
                     </div>
                 </div>

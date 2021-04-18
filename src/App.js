@@ -14,6 +14,8 @@ import Book from './Components/User/Book/Book';
 import BookingList from './Components/User/BookingList/BookingList';
 import Review from './Components/User/Review/Review';
 import Login from './Components/Login/Login';
+import RemoveService from './Components/Admin/RemoveService/RemoveService';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 export const ServiceContext = createContext();
 
@@ -38,14 +40,17 @@ function App() {
           <Route path="/orderList">
             <OrderList />
           </Route>
-          <Route path="/book">
+          <PrivateRoute path="/book">
             <Book></Book>
-          </Route>
+          </PrivateRoute>
           <Route path="/bookingList">
             <BookingList />
           </Route>
           <Route path="/review">
             <Review />
+          </Route>
+          <Route path="/removeService">
+            <RemoveService />
           </Route>
           <Route path="/login">
             <Login />

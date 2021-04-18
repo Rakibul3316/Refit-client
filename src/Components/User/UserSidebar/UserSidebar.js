@@ -15,6 +15,10 @@ const UserSidebar = () => {
                 </div>
                 <div className="user-nav">
                     <div className="user-nav-link">
+                        <span><FontAwesomeIcon icon={faHome} /></span><Link to="/">Home</Link>
+                    </div>
+
+                    <div className="user-nav-link">
                         <span><FontAwesomeIcon icon={faCartPlus} /></span><Link to="/book">Book</Link>
                     </div>
 
@@ -24,10 +28,6 @@ const UserSidebar = () => {
 
                     <div className="user-nav-link">
                         <span><FontAwesomeIcon icon={faCommentDots} /></span><Link to="/review">Review</Link>
-                    </div>
-
-                    <div className="user-nav-link">
-                        <span><FontAwesomeIcon icon={faHome} /></span><Link to="/">Home</Link>
                     </div>
                 </div>
             </section>

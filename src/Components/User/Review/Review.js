@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Review.css'
 import { useForm } from 'react-hook-form';
 import UserSidebar from '../UserSidebar/UserSidebar';
+import { ServiceContext } from '../../../App';
 
 const Review = () => {
 
+    const { value, value2 } = useContext(ServiceContext);
+
+    const [loggedInUser, setLoggedInUser] = value2
+    console.log(loggedInUser)
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = (data) => {
         const newReview = {
-            userName: data.name,
+            userName: loggedInUser.name,
             userDesignation: data.designation,
-            userReview: data.description
+            userReview: data.description,
+            photoURL: loggedInUser.photoURL
         }
         console.log(newReview)
 
@@ -38,12 +44,12 @@ const Review = () => {
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input type="text" {...register('name', { required: true })} placeholder="Your Name" className="form-control" />
+                                            <input type="text" {...register('name', { required: true })} placeholder="Your Name" className="form-control" defaultValue={loggedInUser.name} />
                                             {errors.name && <p className="text-danger">This field is required</p>}
                                         </div>
 
                                         <div className="form-group">
-                                            <input type="text" {...register('designation', { required: true })} placeholder="Company's name.Designation" className="form-control" />
+                                            <input type="text" {...register('designation', { required: true })} placeholder="Company's name. Designation" className="form-control" />
                                             {errors.designation && <p className="text-danger">This field is required</p>}
                                         </div>
 

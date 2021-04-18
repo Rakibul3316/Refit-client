@@ -6,7 +6,17 @@ const MakeAdmin = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = (data) => {
-        console.log(data)
+        const newAdminEmail = {
+            adminEmail: data.email
+        }
+
+        console.log(newAdminEmail)
+
+        fetch("http://localhost:5000/addAdmin", {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newAdminEmail)
+        })
     }
 
     return (
@@ -26,8 +36,8 @@ const MakeAdmin = () => {
                                     <div className="col-md-6">
                                         <div className="form-group">
                                             <label htmlFor="text">Service Title</label>
-                                            <input type="email" {...register('name', { required: true })} placeholder="Enter Title" className="form-control" />
-                                            {errors.name && <p className="text-danger">This field is required</p>}
+                                            <input type="email" {...register('email', { required: true })} placeholder="Enter Title" className="form-control" />
+                                            {errors.email && <p className="text-danger">This field is required</p>}
                                         </div>
                                     </div>
                                     <div className="col-md-6">

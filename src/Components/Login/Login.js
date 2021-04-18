@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import './Login.css'
 import googleImg from '../../image/Group 573.png'
 import firebase from "firebase/app";
@@ -17,6 +17,10 @@ const Login = () => {
     const [loggedInUser, setLoggedInUser] = value2;
     console.log(loggedInUser)
 
+    const location = useLocation()
+    const history = useHistory()
+    const { from } = location.state || { from: { pathname: "/" } };
+
 
     const handleGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
@@ -27,6 +31,7 @@ const Login = () => {
                 const { displayName, email, photoURL } = result.user
                 const signInUser = { name: displayName, email, photoURL }
                 setLoggedInUser(signInUser)
+                history.replace(from);
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;

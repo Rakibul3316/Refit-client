@@ -25,9 +25,7 @@ const SingleService = ({ service }) => {
                 <div className="single-service-price-place-order d-flex justify-content-between">
                     <p className="service-price">$ {service.price} </p>
 
-                    <Link to="/book">
-                        <button onClick={() => handleClick(service)} className="service-btn">Get Service</button>
-                    </Link>
+                    <Link to="/book" onClick={() => handleClick(service)} className="service-btn">Get Service</Link>
 
                 </div>
             </div>
