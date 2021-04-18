@@ -8,7 +8,18 @@ const Review = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const onSubmit = (data) => {
-        console.log(data)
+        const newReview = {
+            userName: data.name,
+            userDesignation: data.designation,
+            userReview: data.description
+        }
+        console.log(newReview)
+
+        fetch("http://localhost:5000/addComments", {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newReview)
+        })
     }
 
     return (
@@ -37,8 +48,8 @@ const Review = () => {
                                         </div>
 
                                         <div className="form-group">
-                                            <textarea rows="7" {...register('description', { required: true })} placeholder="Description" className="form-control"></textarea>
-                                            {errors.name && <p className="text-danger">This field is required</p>}
+                                            <textarea rows="7" {...register('description', { required: true })} placeholder="Please, place your review here" className="form-control"></textarea>
+                                            {errors.description && <p className="text-danger">This field is required</p>}
                                         </div>
                                     </div>
                                 </div>

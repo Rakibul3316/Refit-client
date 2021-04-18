@@ -3,7 +3,6 @@ import './SingleMember.css'
 import img from '../../../image/person-1.jpg'
 
 const SingleMember = ({ member }) => {
-    console.log(`../../../image/${member.img}`)
     return (
         <div className="col-md-3">
             <div className="single-member">

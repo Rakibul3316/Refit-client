@@ -12,6 +12,7 @@
 
 .single-service-img img {
   width: 100%;
+  height: 235px;
   transition: 1.5s;
 }
 
@@ -27,9 +28,32 @@
 .single-service-content h4 {
   font-weight: 700;
   margin-bottom: 15px;
+  text-transform: capitalize;
 }
 
 .single-service-content p {
   color: #575757;
   font-size: 1.1rem;
+}
+
+.single-service-price-place-order {
+  padding: 0px 40px;
+  padding-bottom: 40px;
+}
+
+.service-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.service-btn {
+  color: #fff;
+  background-color: #002c42;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.service-btn:hover {
+  color: #00c3ed;
 }

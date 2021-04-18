@@ -1,36 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './OurServices.css'
 import SingleService from '../SingleService/SingleService';
 
-
-const services = [
-    {
-        id: 1,
-        img: "laptop-service.jpg",
-        title: "Laptop Repair",
-        description: "Leverage agile frameworks to provide a robust synopsis for high level overviews."
-    },
-    {
-        id: 2,
-        img: "computer-service.jpg",
-        title: "Computer Repair",
-        description: "Leverage agile frameworks to provide a robust synopsis for high level overviews."
-    },
-    {
-        id: 3,
-        img: "data-recovery.jpg",
-        title: "Data Recovery",
-        description: "Leverage agile frameworks to provide a robust synopsis for high level overviews."
-    },
-    {
-        id: 4,
-        img: "mobile-repair.jpg",
-        title: "Phone Unlock",
-        description: "Leverage agile frameworks to provide a robust synopsis for high level overviews."
-    }
-]
-
 const OurServices = () => {
+
+    const [services, setServices] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/services")
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
+
     return (
         <section className="container">
             <div className="our-services text-center">
@@ -41,7 +22,7 @@ const OurServices = () => {
                 <div className="service-cards">
                     <div className="row">
                         {
-                            services.map(service => (<SingleService key={service.id} service={service}></SingleService>))
+                            services.map(service => (<SingleService key={service._id} service={service}></SingleService>))
                         }
                     </div>
                 </div>

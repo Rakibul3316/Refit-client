@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './OrderList.css'
 import AdminSidebar from '../AdminSidebar/AdminSidebar';
 
 const OrderList = () => {
+
+    const [allOrders, setAllOrders] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/allOrders")
+            .then(res => res.json())
+            .then(data => setAllOrders(data))
+    }, [])
+
+
     return (
         <main className="container-fluid">
             <div className="row">
@@ -15,33 +25,28 @@ const OrderList = () => {
                     </div>
                     <div className="order-list-body">
                         <div className="order-list-table">
-                            <table class="table">
+                            <table className="content-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Service</th>
+                                        <th>Pay with</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                    {
+                                        allOrders.map(order => (
+                                            <tr>
+                                                <td> {order.userName} </td>
+                                                <td> {order.userEmail} </td>
+                                                <td> {order.serviceTitle} </td>
+                                                <td>Creadit Card</td>
+                                                <td><button>pendding</button></td>
+                                            </tr>
+                                        ))
+                                    }
                                 </tbody>
                             </table>
                         </div>

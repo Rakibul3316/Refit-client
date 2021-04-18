@@ -24,6 +24,11 @@
   margin-left: 20px;
 }
 
+.testimonial-comment {
+  max-height: 250px;
+  overflow-y: hidden;
+}
+
 .testimonial-comment p {
   font-size: 1.2rem;
 }

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import React from "react";
+import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,36 +15,44 @@ import BookingList from './Components/User/BookingList/BookingList';
 import Review from './Components/User/Review/Review';
 import Login from './Components/Login/Login';
 
+export const ServiceContext = createContext();
+
 function App() {
+
+  const [product, setProduct] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState({})
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/addService">
-          <AddServices />
-        </Route>
-        <Route path="/makeAdmin">
-          <MakeAdmin />
-        </Route>
-        <Route path="/orderList">
-          <OrderList />
-        </Route>
-        <Route path="/book">
-          <Book></Book>
-        </Route>
-        <Route path="/bookingList">
-          <BookingList />
-        </Route>
-        <Route path="/review">
-          <Review />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
-    </Router>
+    <ServiceContext.Provider value={{ value: [product, setProduct], value2: [loggedInUser, setLoggedInUser] }}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/addService">
+            <AddServices />
+          </Route>
+          <Route path="/makeAdmin">
+            <MakeAdmin />
+          </Route>
+          <Route path="/orderList">
+            <OrderList />
+          </Route>
+          <Route path="/book">
+            <Book></Book>
+          </Route>
+          <Route path="/bookingList">
+            <BookingList />
+          </Route>
+          <Route path="/review">
+            <Review />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
+    </ServiceContext.Provider>
   );
 }
 

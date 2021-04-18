@@ -1,0 +1,35 @@
+.user-order-list {
+  width: 1050px;
+}
+
+.single-order {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.order-condition-btn {
+  width: 90px;
+  height: 40px;
+  border: none;
+  background: lightseagreen;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.order-list-img img {
+  width: 100px;
+}
+
+.order-list-content {
+  margin-top: 15px;
+}
+
+.order-list-content h5 {
+  text-transform: capitalize;
+}
+
+.order-list-content p {
+  padding-top: 5px;
+  font-size: 0.9rem;
+}

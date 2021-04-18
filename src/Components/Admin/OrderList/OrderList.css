@@ -8,8 +8,33 @@
 .order-list-body {
   background-color: #c6e7f0;
   height: 100vh;
+  padding: 20px 20px 0px 20px;
 }
 
 .order-list-table {
-  padding: 20px 20px 0px 20px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.content-table {
+  border-collapse: collapse;
+  font-size: 1rem;
+  min-width: 1000px;
+}
+
+.content-table thead tr {
+  background-color: rgb(214, 214, 214);
+  color: #333;
+  text-align: left;
+  font-weight: 600;
+}
+
+.content-table thead tr th,
+.content-table tbody tr td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #ddd;
 }

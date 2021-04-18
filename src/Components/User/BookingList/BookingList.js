@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './BookingList.css'
 import UserSidebar from '../UserSidebar/UserSidebar';
+import { ServiceContext } from '../../../App';
+import SingleBookOrder from '../SingleBookOrder/SingleBookOrder';
 
 const BookingList = () => {
+
+    const { value2 } = useContext(ServiceContext);
+    const [loggedInUser, setLoggedInUser] = value2;
+
+    const [userOrders, setUserOrders] = useState([])
+    console.log(userOrders)
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/userOrders?email=${loggedInUser.email}`)
+            .then(res => res.json())
+            .then(data => setUserOrders(data))
+    }, [loggedInUser])
+
+
+
     return (
         <main className="container-fluid">
             <div className="row">
@@ -14,8 +31,12 @@ const BookingList = () => {
                         <h4>Booking List</h4>
                     </div>
                     <div className="user-body">
-                        <div className="user-form">
-
+                        <div className="user-order-list">
+                            <div className="row">
+                                {
+                                    userOrders.map(order => (<SingleBookOrder order={order}></SingleBookOrder>))
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

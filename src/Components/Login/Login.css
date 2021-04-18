@@ -1,0 +1,35 @@
+.login {
+  background-color: rgb(241, 241, 241);
+  height: 100vh;
+}
+
+.login-area {
+  margin-top: 90px;
+}
+
+.login-logo {
+  padding-top: 20px;
+}
+
+.login-title h3 {
+  font-weight: 600;
+}
+
+.google-login {
+  margin-top: 20px;
+}
+
+.google-login img {
+  width: 30px;
+  height: 30px;
+  float: left;
+}
+
+.google-login button {
+  width: 450px;
+  height: 45px;
+  padding: 5px;
+  border-radius: 40px;
+  background-color: #fff;
+  border: 1px solid rgb(187, 187, 187);
+}

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './SimpleCardForm.css'
-import { CardElement, useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
-
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { ServiceContext } from '../../../App';
 
 const SimpleCardForm = () => {
 
@@ -10,23 +10,23 @@ const SimpleCardForm = () => {
 
     const [paymentError, setPaymentError] = useState(null)
     const [paymentSuccess, setPaymentSuccess] = useState(null)
+    // console.log(paymentSuccess)
+    const { value, value2 } = useContext(ServiceContext);
+    const [product] = value;
+    console.log(product)
+    const [loggedInUser] = value2;
 
     const handleSubmit = async (event) => {
-        // Block native form submission.
+
+
+
         event.preventDefault();
 
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
             return;
         }
-
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
         const cardElement = elements.getElement(CardElement);
 
-        // Use your card Element with other Stripe.js APIs
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card: cardElement,
@@ -36,20 +36,41 @@ const SimpleCardForm = () => {
             setPaymentError(error.message)
             setPaymentSuccess(null)
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
             setPaymentSuccess(paymentMethod.id)
             setPaymentError(null)
+            alert('Your order place succesfully')
         }
+
+        const order = {
+            userName: loggedInUser.name,
+            userEmail: loggedInUser.email,
+            serviceTitle: product.title,
+            servicePrice: product.price,
+            serviceId: product._id,
+            paymentId: paymentMethod.id,
+            imageURL: product.image
+        }
+
+        fetch("http://localhost:5000/addOrders", {
+            method: "POST",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(order)
+        })
+
     };
 
     return (
-        <div>
+        <div className="book-wrapper">
             <div>
                 <form onSubmit={handleSubmit}>
+                    <input name="name" defaultValue={loggedInUser.name} className='form-control' type="text" />
+                    <input name="email" defaultValue={loggedInUser.email} className='form-control' type="email" />
+                    <input name="designation" defaultValue={product.title} placeholder="Designation" className='form-control' type="text" />
                     <h6 className="pb-3">pay with</h6>
                     <CardElement className="InputContainer" />
                     <div className="d-flex justify-content-between">
-                        <p>Your service charge will be $1000</p>
+                        <p>Your service charge will be $ {product.price} </p>
                         <button className="submit-btn" type="submit" disabled={!stripe}>Pay</button>
                     </div>
                 </form>
